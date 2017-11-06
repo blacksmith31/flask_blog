@@ -1,0 +1,10 @@
+python manage.py shell
+from flask_blog import db
+from author.models import Author
+db.create_all()
+author = Author('Jameson Marshall', 'jamesonhmarshall@gmail.com', 'jamesonhm', 'learnFlask1', True)
+db.session.add(author)
+db.session.commit()
+authors = Author.query.all()
+db.session.commit()
+db.drop_all()
