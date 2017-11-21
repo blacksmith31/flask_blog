@@ -8,3 +8,17 @@ db.session.commit()
 authors = Author.query.all()
 db.session.commit()
 db.drop_all()
+
+
+>>> from author.models import *
+>>> from blog.models import *
+>>> author = Author.query.first()
+>>> author<Author 'jamesonhm'>
+>>> blog = Blog.query.first()
+>>> blog<Blog 'My Python Blog'>
+>>> category = Category.query.first()
+>>> category<Category 'Python'>
+>>> post = Post(blog, author, 'Python is Cool!', 'This is why Python is cool.', category)
+>>> post<Post 'Python is Cool!'>
+>>> post = Post(blog, author, 'Categories are neat!', 'This is the second blog post, it is about categories.', category)
+>>> db.session.add(post)>>> db.session.commit()
